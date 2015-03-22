@@ -45,6 +45,31 @@
             th {
                 text-align: center;
             }
+            .notyet:after {
+                content: "*";
+
+            }
+            .notyet {
+                color:#999;
+            }
+            .tfoot:before {
+                content: "*";
+            }
+            .tfoot {
+                color:#777;
+            }
+
+            a {
+                color: #555;
+                text-decoration: none;
+            }
+            a:hover {
+                color: #666;
+                text-decoration: underline;
+            }
+            a:active {
+                color:#444;
+            }
 
 
         </style>
@@ -57,39 +82,52 @@
 Aenean vulputate eros sed vehicula commodo. Aliquam sollicitudin consectetur erat, id pellentesque massa mollis et. Pellentesque lobortis sapien sed aliquet egestas. Donec at tristique felis, at efficitur lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc eget ipsum turpis. Ut eu erat ultricies, consectetur ligula pretium, dictum leo. Aenean vestibulum, ex vitae aliquet suscipit, risus turpis consequat tortor, ut commodo libero dolor eget est. Aliquam euismod rutrum pellentesque. Aliquam facilisis est elit, ut semper ex semper at. Nunc eget nisi nec erat convallis rutrum vel semper nunc. Etiam ut ex lacinia, vehicula est quis, laoreet nisl.
 
         <table>
-            <tr>
-                <th colspan="4">Proficiencies</th>
-            </tr>
-            <tr>
-                <td>HTML</td>
-                <td>CSS</td>
-                <td>JavaScript</td>
-                <td>PHP</td>
-            </tr>
-            <tr>
-                <td>Ruby on Rails</td>
-                <td>Bash</td>
-                <td>Git</td>
-                <td>Ruby</td>
-            </tr>
-            <tr>
-                <td>Nginx</td>
-                <td>Apache</td>
-                <td>Office</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Python</td>
-                <td>Java</td>
-                <td>Magento</td>
-                <td>WordPress</td>
-            </tr>
-            <tr>
-                <td>Windows</td>
-                <td>OSX</td>
-                <td>Linux</td>
-                <td></td>
-            </tr>
+            <thead>
+                <tr>
+                    <th colspan="4">Proficiencies</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>HTML</td>
+                    <td>CSS</td>
+                    <td>JavaScript</td>
+                </tr>
+                <tr>
+                    <td><a target="_blank" href="http://sass-lang.com/">SASS</a></td>
+                    <td><a target="_blank" href="http://lesscss.org/">LESS</a></td>
+                    <td><a target="_blank" href="http://coffeescript.org/">CoffeeScript</a></td>
+                <tr>
+                    <td>PHP</td>
+                    <td><a target="_blank" href="http://rubyonrails.org/">Ruby on Rails</a></td>
+                    <td class="notyet"><a target="_blank" href="http://www.sinatrarb.com/">Sinatra</a></td>
+                </tr>
+                <tr>
+                    <td><a target="_blank" href="http://magento.com/">Magento</a></td>
+                    <td>WordPress</td>
+                    <td><a target="_blank" href="http://dashing.io/">Dashing</a></td>
+                </tr>
+                <tr>
+                    <td>Nginx</td>
+                    <td>Apache</td>
+                    <td>Ruby</td>
+                </tr>
+                <tr>
+                    <td>Python</td>
+                    <td>Java</td>
+                    <td>Git</td>
+                </tr>
+                <tr>
+                    <td>Windows</td>
+                    <td>OSX</td>
+                    <td>Linux</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="1" class="tfoot">Hoping to learn soon</td>
+                </tr>
+            </tfoot>
         </table>
     </article>
     </body>
