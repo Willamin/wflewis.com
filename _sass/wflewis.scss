@@ -1,0 +1,33 @@
+@import 'colors';
+@import 'reset';
+@import 'layout';
+@import 'header';
+@import 'main';
+@import 'nav';
+
+html {
+  border-top: 2px solid $accent;
+  body {
+    font-family: sans-serif;
+    background-color: $background;
+    color: $text;
+  }
+}
+
+a {
+  color: $text;
+}
+
+@keyframes raiseup {
+  from {
+    box-shadow: none;
+    background-color: $background;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transform:scale(0.95);
+  }
+  to {
+    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
+    background-color: lighten($background, 5);
+    transform: scale(1);
+  }
+}

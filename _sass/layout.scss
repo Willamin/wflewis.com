@@ -1,0 +1,27 @@
+header {grid-area: h;}
+nav {grid-area: n;}
+aside {grid-area: a;}
+main {grid-area: m;}
+footer {grid-area: f;}
+
+body {
+  display: grid;
+  grid-template-areas:
+    "h h h"
+    "n m a"
+    "f f f";
+  grid-template-rows: 120px 1fr 100px;
+  grid-template-columns: 200px 1fr 200px;
+}
+
+@media (max-width: 768px) {
+  body {
+    grid-template-areas:
+      "h"
+      "m"
+      "n"
+      "f";
+    grid-template-rows: 120px 1fr 1fr 100px;
+    grid-template-columns: 1fr;
+  }
+}

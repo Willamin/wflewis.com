@@ -1,0 +1,13 @@
+<nav>
+  <ul>
+    {% for page in site.pages %}
+      {% if page.title %}
+        <li><a href="{{ page.url | relative_url }}">{{ page.title | escape }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% for post in site.posts %}
+      <li><a href="{{post.url | relative_url}}">{{ post.title | escape }}</a></li>
+    {% endfor %}
+    <li><a target="_blank" href="https://github.com/willamin">Github</a></li>
+  </ul>
+</nav>

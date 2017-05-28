@@ -1,0 +1,25 @@
+main {
+  article {
+    margin: 0.5em;
+    padding: 0.5em 1em;
+    animation: raiseup 0.5s;
+    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
+    background-color: lighten($background, 5);
+    article {
+      animation: none;
+      box-shadow: none;
+      font-variant: small-caps;
+      letter-spacing: 1px;
+      background-color: transparent;
+    }
+  }
+}
+
+mark {
+  color: $accent;
+  background-color: inherit;
+}
+
+.fr {
+  float:right;
+}
