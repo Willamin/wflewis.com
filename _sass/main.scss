@@ -5,12 +5,9 @@ main {
     animation: raiseup 0.5s;
     box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
     background-color: lighten($background, 5);
-    article {
-      animation: none;
-      box-shadow: none;
-      font-variant: small-caps;
-      letter-spacing: 1px;
-      background-color: transparent;
+    li:before {
+      content: '\2013';
+      padding-right: 0.5em;
     }
   }
 }
@@ -22,4 +19,18 @@ mark {
 
 .fr {
   float:right;
+}
+
+.lined {
+  width: 100%;
+  height: 0.5em;
+  border-bottom: 1px solid $text;
+  display: block;
+  span {
+    background-color: $background;
+    font-size: 1em;
+    padding: 0 0.25em;
+    margin-left: 1em;
+  }
+  margin-bottom: 0.75em;
 }
