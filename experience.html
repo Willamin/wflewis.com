@@ -2,14 +2,10 @@
 layout: default
 title: Experience
 ---
-<br>
-<div class="lined"><span>April 2014 - Present</span></div>
-<h3>Developer</h3>
-<em>Delegator</em> | Chattanooga, TN
-<ul>
-  <li>Responsible for installing and customizing themes and extensions for Magento and Wordpress</li>
-  <li>Updated and fixed bugs in websites using Ruby on Rails</li>
-  <li>Maintained servers and Amazon web services</li>
-  <li>Communicated with clients regarding bugs, features, and designs to ensure customer satisfaction</li>
-  <li>Collaborated with team to design website structures Involved in pair programing</li>
-</ul>
+{% for job in site.jobs %}
+  <br>
+  <div class="lined"><span>{{ job.when }}</span></div>
+  <h3>{{ job.what }}</h3>
+  <em>{{ job.who }}</em> | {{ job.where }}
+  {{ job.content }}
+{% endfor %}
