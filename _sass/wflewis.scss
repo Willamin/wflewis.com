@@ -15,6 +15,11 @@ html {
   }
 }
 
+.turbolinks-progress-bar {
+  height: 2px;
+  background-color: darken($accent, 30%);
+}
+
 a {
   color: $text;
 }

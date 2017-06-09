@@ -2,7 +2,6 @@ main {
   article {
     margin: 0.5em;
     padding: 0.5em 1em;
-    animation: raiseup 0.5s;
     box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
     background-color: lighten($background, 5);
     li:before {
