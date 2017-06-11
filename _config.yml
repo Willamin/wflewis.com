@@ -29,3 +29,5 @@ exclude:
 collections:
   jobs:
     output: false
+
+permalink: pretty
