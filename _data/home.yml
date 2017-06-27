@@ -1,0 +1,11 @@
+- title: Journey
+  anchor: "journey"
+  file: journey.md
+
+- title: Experience
+  anchor: "experience"
+  file: experience.html
+
+- title: Education
+  anchor: "education"
+  file: education.html

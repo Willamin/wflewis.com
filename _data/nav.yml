@@ -1,14 +1,11 @@
-- title: Home
-  url: /
-
-- title: Education
-  url: education
+- title: Journey
+  url: "#journey"
 
 - title: Experience
-  url: experience
+  url: "#experience"
 
-- title: Journey
-  url: journey
+- title: Education
+  url: "#education"
 
 - title: Resume
-  url: resume.pdf
+  url: "resume.pdf"
