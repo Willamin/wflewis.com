@@ -4,6 +4,9 @@ nav {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
     padding: 0;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 2em;
   }
   li {
     a {
