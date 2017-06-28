@@ -7,9 +7,10 @@
 @import 'responsive.scss';
 
 html {
-  border-top: 2px solid $accent;
+  background-image: none;
   body {
     font-family: sans-serif;
+    background-image: url('/images/tree_bark.png');
     background-color: $background;
     color: $text;
   }
