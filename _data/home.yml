@@ -9,3 +9,7 @@
 - title: Education
   anchor: "education"
   file: education.html
+
+- title: Skills
+  anchor: "skills"
+  file: skills.html
