@@ -15,11 +15,13 @@ body {
   color: #eee;
   text-shadow: 2px 2px #333;
 }
-
+h1 { font-size: 4em; }
+h2 { font-size: 3em; }
 h1, h2 {
-  font-family: "Impact", "Charcoal", sans-serif;
+  font-family: "Kanit", sans-serif;
   letter-spacing: 2px;
-  line-height: 1em;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
 }
 
 img {
