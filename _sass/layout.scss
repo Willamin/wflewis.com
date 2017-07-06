@@ -4,14 +4,33 @@ aside {grid-area: a;}
 main {grid-area: m;}
 footer {grid-area: f;}
 
+html {
+  display: flex;
+  justify-content: center;
+}
+
 body {
+  max-width: 1400px;
   display: grid;
   grid-template-areas:
     "h h h"
-    "n m a"
+    "n m m"
     "f f f";
   grid-template-rows: 120px 1fr 100px;
-  grid-template-columns: 200px 1fr 200px;
+  grid-template-columns: 200px 600px 200px;
+}
+
+@media (max-width: 1200px) {
+  body {
+    max-width: 1400px;
+    display: grid;
+    grid-template-areas:
+      "h h h"
+      "n m a"
+      "f f f";
+    grid-template-rows: 120px 1fr 100px;
+    grid-template-columns: 200px 1fr 200px;
+  }
 }
 
 @media (max-width: 768px) {
