@@ -1,6 +1,34 @@
 ---
 layout: base
 ---
-<img src="https://s.gravatar.com/avatar/6f56d225b91053b372d1c44b89ffd3e9?s=200"/>
-<h1>Will Lewis</h1>
-<h2>Developer</h2>
+<aside></aside>
+<main>
+  <img src="https://s.gravatar.com/avatar/6f56d225b91053b372d1c44b89ffd3e9?s=200"/>
+  <h1>Will Lewis</h1>
+  <h2>Developer</h2>
+
+  <label for="form">
+    <span>Contact me</span>
+  </label>
+</main>
+<input type="checkbox" id="form"/>
+
+<aside>
+  <form name="contact" netlify>
+    <p>
+      <label for="who">Who are you?</label>
+      <br><input name="who"/>
+    </p>
+    <p>
+      <label for="where">Where can I reach you?</label>
+      <br><input name="where" type="email"/>
+    </p>
+    <p>
+      <label for="what">What do you want to discuss?</label>
+      <br><textarea rows="3" name="what"></textarea>
+    </p>
+    <p>
+      <button>Send</button>
+    </p>
+  </form>
+</aside>
