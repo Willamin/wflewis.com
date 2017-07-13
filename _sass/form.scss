@@ -6,13 +6,20 @@ form {
   border: 1px solid hsl(140, 50%, 50%);
   p {
     margin: 0;
+    margin-bottom: 2em;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
   }
   input, textarea {
     border: none;
-    font-size: 1em;
+    font-size: 0.9em;
     color: #eee;
     background-color: transparent;
     width: 100%;
+    &::placeholder {
+      color: rgba(238,238,238, 0.3);
+    }
   }
   input {
     border-bottom: 1px solid #eee;
@@ -33,8 +40,8 @@ form {
     background-color: hsl(140, 50%, 50%);
     color: #eee;
     border: none;
-    margin-top: 1em;
     padding: 0.4em 1em;
+    margin-bottom:0;
     text-shadow: none;
     box-shadow: 3px 3px 10px 2px #222;
     transition: 0.5s;
