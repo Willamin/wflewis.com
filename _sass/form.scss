@@ -1,0 +1,46 @@
+form {
+  padding: 1em;
+  margin: 0;
+  font-family: "Catamaran", sans-serif;
+  font-size: 1.5em;
+  border: 1px solid hsl(140, 50%, 50%);
+  p {
+    margin: 0;
+  }
+  input, textarea {
+    border: none;
+    font-size: 1em;
+    color: #eee;
+    background-color: transparent;
+    width: 100%;
+  }
+  input {
+    border-bottom: 1px solid #eee;
+    background-color: transparent;
+  }
+  textarea {
+    line-height: 36px;
+    background: linear-gradient(transparent, transparent 35px, #eee 1px);
+    background-size: 100% 36px;
+  }
+  button {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-size: 0.75em;
+    border-radius: 50px;
+    background-color: hsl(140, 50%, 50%);
+    color: #eee;
+    border: none;
+    margin-top: 1em;
+    padding: 0.4em 1em;
+    text-shadow: none;
+    box-shadow: 3px 3px 10px 2px #222;
+    transition: 0.5s;
+    &:hover {
+      box-shadow: 4px 4px 12px 3px #222;
+      transform: scale(1.1);
+    }
+  }
+}
