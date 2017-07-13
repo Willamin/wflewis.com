@@ -4,9 +4,10 @@ form {
   font-family: "Catamaran", sans-serif;
   font-size: 1.5em;
   border: 1px solid hsl(140, 50%, 50%);
+  max-height: calc(100% - 2em);
   p {
     margin: 0;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
     &:last-of-type {
       margin-bottom: 0;
     }
@@ -41,7 +42,9 @@ form {
     color: #eee;
     border: none;
     padding: 0.4em 1em;
-    margin-bottom:0;
+    width: 100%;
+    margin-top: -1em;
+    margin-bottom: 0;
     text-shadow: none;
     box-shadow: 3px 3px 10px 2px #222;
     transition: 0.5s;

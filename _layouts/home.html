@@ -1,23 +1,15 @@
 ---
 layout: base
 ---
-<input type="checkbox" id="form"/>
-
 <main>
-  <section>
+  <section id="top">
     <img src="https://s.gravatar.com/avatar/6f56d225b91053b372d1c44b89ffd3e9?s=200"/>
     <h1>Will Lewis</h1>
     <h2>Developer</h2>
-    <label class="button" for="form">
-      <span class="cta">Contact</span>
-    </label>
+    <a href="#contact">Contact</a>
   </section>
 
-  <section>
-    <label class="button" for="form">
-      <span>Back</span>
-    </label>
-    <br/>
+  <section id="contact">
     {% include form.html %}
   </section>
 </main>
