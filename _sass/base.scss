@@ -25,6 +25,12 @@ body {
   flex-wrap: wrap;
 }
 
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -47,6 +53,8 @@ main {
       color: #eee;
       margin-top: 2.5em;
       margin-bottom: 0;
+      margin-left: 1em;
+      margin-right: 1em;
       box-shadow: 3px 3px 10px 2px #222;
       -webkit-user-select: none;
       -moz-user-select: none;
@@ -63,6 +71,16 @@ main {
         transform: scale(1.1);
         box-shadow:
           4px 4px 12px 3px #222;
+      }
+
+      &.small {
+        background-color: hsl(140, 50%, 40%);
+        transform: scale(0.8);
+        &:hover {
+          transform: scale(0.88);
+          box-shadow:
+            4px 4px 12px 3px #222;
+        }
       }
     }
   }
@@ -88,4 +106,14 @@ img {
   img { transform: scale(0.75); }
   h1 { font-size: 3em; }
   h2 { font-size: 2em; }
+}
+
+pre {
+  color: #eee;
+  background-color: #2f2f2f;
+  text-shadow: none;
+  margin: 2em;
+  padding: 3em;
+  border: 1px solid #eee;
+  border-radius: 5px;
 }
