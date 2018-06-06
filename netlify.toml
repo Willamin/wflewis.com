@@ -1,0 +1,4 @@
+[build]
+  base    = "project/"
+  publish = "project/build/"
+  command = "middleman build"
