@@ -1,3 +1,8 @@
+html, body {
+  height: 100%;
+  min-height: 100%;
+}
+
 html {
   -webkit-font-smoothing: antialiased;
   background-color: #2f2f2f;
@@ -13,7 +18,7 @@ html {
     }
   }
 
-body {
+.my-body {
   margin: 0px;
   color: #eee;
   text-shadow: 3px 3px #222;
@@ -46,7 +51,7 @@ main {
   min-height: 100%;
   width: 100%;
   section {
-    height: calc(100% - 2em);
+    height: calc(100vh - 2em);
     width: calc(100% - 2em);
     display: flex;
     flex-direction: column;
