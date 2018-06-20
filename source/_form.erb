@@ -1,4 +1,4 @@
-<form name="contact" netlify>
+<form name="contact" netlify-honeypot="honey" netlify>
   <p>
     <label for="who">Who are you?</label>
     <br><input id="who" name="who" placeholder="you"/>
@@ -10,6 +10,10 @@
   <p>
     <label for="what">What do you want to discuss?</label>
     <br><textarea id="what" rows="3" name="what" placeholder=""></textarea>
+  </p>
+  <p class="honey">
+    <label for="honey">Leave this blank</label>
+    <br><input id="honey" name="honey"/>
   </p>
   <p>
     <button class="cta">Send</button>
