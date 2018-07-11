@@ -1,4 +1,5 @@
 [build]
   base    = ""
-  publish = "build/"
-  command = "middleman build"
+  publish = "build"
+  command = "make build"
+  functions = "functions"
