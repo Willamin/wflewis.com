@@ -37,6 +37,7 @@ func AWSHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRe
 
 func MockHandler() {
   http.HandleFunc("/analytics.css", func(w http.ResponseWriter, r *http.Request) {
+    log.Printf("request: %v", r)
     http.Error(w, "not implemented yet", http.StatusNotImplemented)
   })
 
