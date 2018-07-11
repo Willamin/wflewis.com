@@ -82,7 +82,7 @@ func AWSHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRe
 
   db := SetupDB()
 
-  err := db.Insert(pv)
+  err := db.Insert(&pv)
   if err != nil {
       panic(err)
   }
