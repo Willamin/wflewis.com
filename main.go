@@ -27,6 +27,10 @@ func main() {
 }
 
 func AWSHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
+  log.Printf("")
+  log.Printf("Request:")
+  log.Printf("remote address: %s", request.RequestContext.Identity.SourceIP)
+  log.Printf("referer: %s", request.Headers["Referer"])
 
   return events.APIGatewayProxyResponse{
     Body:       "not implemented yet",
