@@ -27,6 +27,8 @@ func main() {
 }
 
 func AWSHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
+  log.Printf("request: %v", request)
+
   return events.APIGatewayProxyResponse{
     Body:       "not implemented yet",
     StatusCode: 501,
