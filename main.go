@@ -52,11 +52,8 @@ func SetupDB() *pg.DB {
   }
 
   db := pg.Connect(options)
-  defer db.Close()
 
-  for _, model := range []interface{}{&PageView{}} {
-    db.CreateTable(model, &orm.CreateTableOptions{})
-  }
+  db.CreateTable(&PageView{}, &orm.CreateTableOptions{})
   return db
 }
 
@@ -71,13 +68,16 @@ func AWSHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRe
     referer = request.Headers["Referer"]
   }
 
-  for k, v := range request.Headers {
-    log.Printf("request.Headers[\"%s\"]=\"%s\"", k, v)
-  }
-
   pv := PageView{
     Referer: referer,
     RemoteAddr: address,
+  }
+
+
+  log.Printf("%v", pv)
+
+  for k, v := range request.Headers {
+    log.Printf("request.Headers[\"%s\"]=\"%s\"", k, v)
   }
 
   db := SetupDB()
@@ -86,6 +86,7 @@ func AWSHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRe
   if err != nil {
       panic(err)
   }
+  db.Close()
 
   return events.APIGatewayProxyResponse{
     Body:       "",
@@ -94,12 +95,20 @@ func AWSHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRe
 }
 
 func MockHandler() {
-  SetupDB()
   http.HandleFunc("/analytics.css", func(w http.ResponseWriter, r *http.Request) {
-    log.Printf("")
-    log.Printf("Request:")
-    log.Printf("remote address: %s", r.RemoteAddr)
-    log.Printf("referer: %s", r.Referer())
+    pv := PageView{
+      Referer: r.RemoteAddr,
+      RemoteAddr: r.Referer(),
+    }
+    log.Printf("%v", pv)
+
+    db := SetupDB()
+
+    err := db.Insert(&pv)
+    if err != nil {
+        panic(err)
+    }
+    db.Close()
   })
 
   http.Handle("/", http.FileServer(http.Dir("build")))
