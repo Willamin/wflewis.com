@@ -5,3 +5,7 @@ build:
 	mkdir -p functions
 	go get ./...
 	go build -o functions/analytics ./...
+
+.PHONY: run
+run:
+	./functions/analytics

@@ -27,7 +27,6 @@ func main() {
 }
 
 func AWSHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
-  log.Printf("request: %v", request)
 
   return events.APIGatewayProxyResponse{
     Body:       "not implemented yet",
@@ -37,7 +36,11 @@ func AWSHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRe
 
 func MockHandler() {
   http.HandleFunc("/analytics.css", func(w http.ResponseWriter, r *http.Request) {
-    log.Printf("request: %v", r)
+    log.Printf("")
+    log.Printf("Request:")
+    log.Printf("remote address: %s", r.RemoteAddr)
+    log.Printf("referer: %s", r.Referer())
+
     http.Error(w, "not implemented yet", http.StatusNotImplemented)
   })
 
