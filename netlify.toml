@@ -1,4 +1,7 @@
 [build]
   base    = ""
-  publish = "build/"
-  command = "middleman build"
+  publish = "build"
+  command = "make build"
+  functions = "functions"
+[build.environment]
+  GO_IMPORT_PATH = "github.com/willamin/wflewis.com"
