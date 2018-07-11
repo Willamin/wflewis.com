@@ -55,11 +55,7 @@ func SetupDB() *pg.DB {
   defer db.Close()
 
   for _, model := range []interface{}{&PageView{}} {
-    err = db.CreateTable(model, &orm.CreateTableOptions{})
-
-    if err != nil {
-      panic(err)
-    }
+    db.CreateTable(model, &orm.CreateTableOptions{})
   }
   return db
 }
