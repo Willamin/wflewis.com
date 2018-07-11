@@ -40,7 +40,7 @@ func main() {
   os.Exit(0)
 }
 
-func SetupDB() {
+func SetupDB() *pg.DB {
   url, present := os.LookupEnv(PostgresUrl)
   if !present {
     panic(errors.New(fmt.Sprintf("missing env %s", PostgresUrl)))
@@ -61,26 +61,34 @@ func SetupDB() {
       panic(err)
     }
   }
+  return db
 }
 
 func AWSHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
-  log.Printf("")
-  log.Printf("Request:")
-
   address, present := request.Headers["x-forwarded-for"]
   if !present {
     address = request.Headers["X-Forwarded-For"]
   }
-  log.Printf("remote address: %s", address)
 
   referer, present := request.Headers["referer"]
   if !present {
     referer = request.Headers["Referer"]
   }
-  log.Printf("referer: %s", referer)
 
   for k, v := range request.Headers {
     log.Printf("request.Headers[\"%s\"]=\"%s\"", k, v)
+  }
+
+  pv := PageView{
+    Referer: referer,
+    RemoteAddr: address,
+  }
+
+  db := SetupDB()
+
+  err := db.Insert(pv)
+  if err != nil {
+      panic(err)
   }
 
   return events.APIGatewayProxyResponse{
@@ -90,6 +98,7 @@ func AWSHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRe
 }
 
 func MockHandler() {
+  SetupDB()
   http.HandleFunc("/analytics.css", func(w http.ResponseWriter, r *http.Request) {
     log.Printf("")
     log.Printf("Request:")
