@@ -30,13 +30,13 @@ func AWSHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRe
   log.Printf("")
   log.Printf("Request:")
 
-  address, present = request.Headers["x-forwarded-for"]
+  address, present := request.Headers["x-forwarded-for"]
   if !present {
     address = request.Headers["X-Forwarded-For"]
   }
   log.Printf("remote address: %s", address)
 
-  referer, present = request.Headers["referer"]
+  referer, present := request.Headers["referer"]
   if !present {
     referer = request.Headers["Referer"]
   }
