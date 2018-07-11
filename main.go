@@ -3,7 +3,6 @@ package main
 import (
   "github.com/aws/aws-lambda-go/events"
   "github.com/aws/aws-lambda-go/lambda"
-  "errors"
   "log"
   "os"
   "net/http"
@@ -47,9 +46,9 @@ func AWSHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRe
   }
 
   return events.APIGatewayProxyResponse{
-    Body:       "not implemented yet",
-    StatusCode: 501,
-  }, errors.New("not implemented yet")
+    Body:       "",
+    StatusCode: 200,
+  }, nil
 }
 
 func MockHandler() {
@@ -58,8 +57,6 @@ func MockHandler() {
     log.Printf("Request:")
     log.Printf("remote address: %s", r.RemoteAddr)
     log.Printf("referer: %s", r.Referer())
-
-    http.Error(w, "not implemented yet", http.StatusNotImplemented)
   })
 
   http.Handle("/", http.FileServer(http.Dir("build")))
