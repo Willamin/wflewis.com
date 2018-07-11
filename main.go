@@ -31,7 +31,9 @@ func AWSHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRe
   log.Printf("Request:")
   log.Printf("remote address: %s", request.RequestContext.Identity.SourceIP)
   log.Printf("referer: %s", request.Headers["Referer"])
-  log.Printf("headers: %v", request.Headers)
+  for k, v := range request.Headers {
+    log.Printf("request.Headers[\"%s\"]=\"%s\"", k, v)
+  }
 
   return events.APIGatewayProxyResponse{
     Body:       "not implemented yet",
