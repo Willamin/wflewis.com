@@ -94,6 +94,7 @@ func AWSHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRe
   return events.APIGatewayProxyResponse{
     Body:       "",
     StatusCode: 200,
+    Headers: map[string]string{"content-type": "text/css"},
   }, nil
 }
 
