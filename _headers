@@ -1,3 +1,7 @@
 /analytics.css
   content-type: text/css
-  cache-control: no-store
+  cache-control: no-store; must-revalidate
+
+/.netlify/functions/analytics  200
+  content-type: text/css
+  cache-control: no-store; must-revalidate
