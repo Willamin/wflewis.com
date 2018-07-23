@@ -10,6 +10,7 @@ import (
   "os"
   "net/http"
   "errors"
+  "time"
 )
 
 const (
@@ -21,10 +22,11 @@ type PageView struct {
     Id         int64
     Referer    string
     RemoteAddr string
+    AccessedAt time.Time
 }
 
 func (u PageView) String() string {
-    return fmt.Sprintf("PageView<%d %s %s>", u.Id, u.Referer, u.RemoteAddr)
+    return fmt.Sprintf("PageView<%d %s %s %s>", u.Id, u.Referer, u.RemoteAddr, u.AccessedAt)
 }
 
 func main() {
@@ -71,6 +73,7 @@ func AWSHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRe
   pv := PageView{
     Referer: referer,
     RemoteAddr: address,
+    AccessedAt: time.Now(),
   }
 
 
@@ -99,6 +102,7 @@ func MockHandler() {
     pv := PageView{
       Referer: r.RemoteAddr,
       RemoteAddr: r.Referer(),
+      AccessedAt: time.Now(),
     }
     log.Printf("%v", pv)
 
