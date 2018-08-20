@@ -5,3 +5,8 @@
   functions = "functions"
 [build.environment]
   GO_IMPORT_PATH = "github.com/willamin/wflewis.com"
+
+[[redirects]]
+  from = "/resume.pdf"
+  to = "/resume_1808.pdf"
+  status = 200
