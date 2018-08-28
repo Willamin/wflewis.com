@@ -20,4 +20,4 @@
 [[headers]]
   for = "/"
   [headers.values]
-    Link = "/stylesheets/main.css; rel=preload; as=style"
+    Link = "</stylesheets/main.css>; rel=preload; as=style"
