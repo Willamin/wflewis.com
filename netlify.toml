@@ -2,9 +2,6 @@
   base    = ""
   publish = "build"
   command = "make build"
-  functions = "functions"
-[build.environment]
-  GO_IMPORT_PATH = "github.com/willamin/wflewis.com"
 
 [[redirects]]
   from = "/resume.pdf"

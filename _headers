@@ -1,7 +1,0 @@
-/analytics.css
-  content-type: text/css
-  cache-control: no-store; must-revalidate
-
-/.netlify/functions/analytics
-  content-type: text/css
-  cache-control: no-store; must-revalidate
