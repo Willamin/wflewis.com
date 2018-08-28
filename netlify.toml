@@ -7,3 +7,11 @@
   from = "/resume.pdf"
   to = "/resume_1808.pdf"
   status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options: sameorigin
+    X-XSS-Protection: 1; mode=block
+    X-Content-Type-Options: nosniff
+    Referrer-Policy: no-referrer
