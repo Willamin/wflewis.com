@@ -1,7 +1,9 @@
-<script async defer src="./javascripts/zenscroll-min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="UTF-8">
 <meta name="description" content="Will Lewis - Software Engineer">
 <meta name="author" content="Will Lewis">
 <title>Will Lewis</title>
-<%= stylesheet_link_tag "main.css" %>
+<% stylesheet_link_tag("main.css") %>
+<style>
+<%= File.read(File.join(File.expand_path(File.dirname(__FILE__)), "build/stylesheets/main.css")) %>
+</style>
