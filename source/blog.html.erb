@@ -1,0 +1,17 @@
+<% content_for :title do %>Blog<% end %>
+<main class="blog">
+  <h1>Blog</h1>
+
+  <ul>
+    <% blog.articles.each do |article| %>
+    <li>
+      <a class="article" href="<%= article.url %>">
+        <article>
+          <div class="outline"></div>
+          <h2><%= article.title %></h2>
+        </article>
+      </a>
+    </li>
+    <% end %>
+  </ul>
+</main>

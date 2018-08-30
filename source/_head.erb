@@ -2,5 +2,10 @@
 <meta charset="UTF-8">
 <meta name="description" content="Will Lewis - Software Engineer">
 <meta name="author" content="Will Lewis">
-<title>Will Lewis</title>
+<title>
+  Will Lewis
+  <% if content_for?(:title) %>
+    - <%= yield_content(:title) %>
+  <% end %>
+</title>
 <%= stylesheet_link_tag("main.css") %>

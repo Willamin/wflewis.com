@@ -1,0 +1,10 @@
+<% wrap_layout :layout do %>
+<% content_for :title do %>Blog<% end %>
+<main class="blog">
+  <h1><%= current_article.title %></h1>
+  <article>
+    <div class="outline"></div>
+    <%= current_article.body %>
+  </article>
+</main>
+<% end %>

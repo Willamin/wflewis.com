@@ -5,7 +5,7 @@ html, body {
 
 html {
   -webkit-font-smoothing: antialiased;
-  background-color: #2f2f2f;
+  background-color: $dark;
   background-image: url('/images/px_by_Gre3g.png');
   min-height: 100%;
 }
@@ -14,18 +14,21 @@ html {
   (-webkit-min-device-pixel-ratio: 1.5),
   (min-resolution: 144dpi) {
     html {
-      background-image: url('/images/px_by_Gre3g_@2x.png');
+      background-image: url('/images/px_by_Gre3g_@2X.png');
     }
   }
 
 .my-body {
   margin: 0px;
-  color: #eee;
-  text-shadow: 3px 3px #222;
+  color: $light;
+  text-shadow: 3px 3px $dark-shadow;
   font-family: "Catamaran", sans-serif;
   font-weight: 100;
   width: 100%;
   min-height: 100%;
+}
+
+.flex-center {
   display:flex;
   flex-direction: row;
   align-items: center;
@@ -54,7 +57,7 @@ html {
   flex-direction: column;
 }
 
-main {
+main.landing {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,13 +78,13 @@ main {
 
 a.button {
   text-decoration: none;
-  background-color: hsl(140, 50%, 50%);
+  background-color: $accent;
   color: #eee;
   margin-top: 2.5em;
   margin-bottom: 0px;
   margin-left: 1em;
   margin-right: 1em;
-  box-shadow: 3px 3px 10px 2px #222;
+  box-shadow: 3px 3px 10px 2px $dark-shadow;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -96,7 +99,7 @@ a.button {
   &:hover {
     transform: scale(1.1);
     box-shadow:
-      4px 4px 12px 3px #222;
+      4px 4px 12px 3px $dark-shadow;
   }
 
   &.small {
@@ -105,7 +108,7 @@ a.button {
     &:hover {
       transform: scale(0.88);
       box-shadow:
-        4px 4px 12px 3px #222;
+        4px 4px 12px 3px $dark-shadow;
     }
   }
 }
@@ -122,8 +125,8 @@ img {
   border-radius: 50%;
   margin-bottom: 1em;
   box-shadow:
-    0px 0px 1px 3px #eee,
-    2px 2px 10px 2px #222;
+    0px 0px 1px 3px $light,
+    2px 2px 10px 2px $dark-shadow;
 }
 
 @media (max-width: 600px) {
@@ -133,11 +136,68 @@ img {
 }
 
 pre {
-  color: #eee;
-  background-color: #2f2f2f;
+  color: $light;
+  background-color: $dark;
   text-shadow: none;
   margin: 2em;
   padding: 3em;
-  border: 1px solid #eee;
+  border: 1px solid $light;
   border-radius: 5px;
+}
+
+main.blog {
+  padding-top: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  min-height: 100%;
+  width: 100%;
+}
+
+article {
+  .outline {
+    border: solid 1px $accent;
+    border-radius: 1px;
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    left: -1em;
+    top: -1em;
+    z-index: -10;
+  }
+
+  margin: 2em;
+  position:relative;
+  background-color: $light;
+  min-width: 50%;
+  font-size: 1.4em;
+
+  padding: 1.5em 2em 1em;
+  color: $dark;
+  text-shadow: none;
+
+  h1 { font-size: 3em; }
+  h2 { font-size: 2em; }
+  h1, h2 {
+    letter-spacing: 0px;
+    line-height: 1em;
+  }
+}
+
+a.article {
+  display: block;
+  text-decoration: none;
+  article {
+    width: initial;
+  }
+}
+
+@media (max-width: 600px) {
+  min-width: 90%;
+}
+
+li {
+  list-style: none;
 }
