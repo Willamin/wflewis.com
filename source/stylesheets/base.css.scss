@@ -181,12 +181,14 @@ article {
   h1 { font-size: 3em; }
   h2 { font-size: 2em; }
   h1, h2 {
+    text-shadow: 3px 3px $light-shadow;
     letter-spacing: 0px;
     line-height: 1em;
   }
 }
 
 a.article {
+  min-width: 50%;
   display: block;
   text-decoration: none;
   article {
