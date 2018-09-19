@@ -121,7 +121,7 @@ h1, h2 {
   letter-spacing: 3px;
 }
 
-img {
+img.face {
   border-radius: 50%;
   margin-bottom: 1em;
   box-shadow:
@@ -130,7 +130,7 @@ img {
 }
 
 @media (max-width: 600px) {
-  img { transform: scale(0.75); }
+  img.face { transform: scale(0.75); }
   h1 { font-size: 3em; }
   h2 { font-size: 2em; }
 }
@@ -186,10 +186,10 @@ article {
     letter-spacing: 0px;
     line-height: 1em;
   }
-}
 
-a, a:visited {
-  color: $dark;
+  a, a:visited {
+    color: $dark;
+  }
 }
 
 a.article {

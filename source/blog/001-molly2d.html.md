@@ -14,3 +14,5 @@ I did my best to ease the process of defining new objects and constructing inher
 So I set about building a lightweight game engine in Crystal, my goals simple:  stay idiomatically Crystal, at least from a user's perspective be uncomplicated, and get out of the way when possible. If my API ever began to felt complicated, I've looked to Löve2d as a baseline. To make sure it gets out of the way, I've been working on a simple game in conjunction with my engine.
 
 While it's not quite finished, fully featured, or meticulously documented, I present [Molly2d](https://github.com/willamin/molly2d).
+
+![](https://raw.githubusercontent.com/Willamin/molly2d/d2151642911de2b70cbaf3c65316d01671c3c3c0/logo/v2.png)
