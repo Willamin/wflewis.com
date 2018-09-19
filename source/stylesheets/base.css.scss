@@ -192,6 +192,10 @@ article {
   }
 }
 
+img:not(.face) {
+  width: 100%;
+}
+
 a.article {
   min-width: 50%;
   display: block;
@@ -202,7 +206,25 @@ a.article {
 }
 
 @media (max-width: 600px) {
-  min-width: 90%;
+  body {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  article {
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  article > .outline {
+    left: 1em;
+    width: calc(100% - 2em);
+    height: calc(100% + 2em);
+  }
+
+  .button-row {
+    display: none;
+  }
 }
 
 li {
