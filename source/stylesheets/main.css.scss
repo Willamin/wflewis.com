@@ -4,6 +4,8 @@ $dark : hsl(0, 0, 18%);
 $dark-shadow : hsl(0, 0, 13%);
 $accent : hsl(140, 50%, 50%);
 
+$clear : hsla(0, 0, 0, 0);
+
 @import "font.css.scss";
 @import "base.css.scss";
 @import "form.css.scss";

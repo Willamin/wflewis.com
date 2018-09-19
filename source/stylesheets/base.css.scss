@@ -171,8 +171,9 @@ article {
   margin: 2em;
   position:relative;
   background-color: $light;
-  min-width: 50%;
   font-size: 1.4em;
+
+  max-width: 600px;
 
   padding: 1.5em 2em 1em;
   color: $dark;
@@ -185,6 +186,10 @@ article {
     letter-spacing: 0px;
     line-height: 1em;
   }
+}
+
+a, a:visited {
+  color: $dark;
 }
 
 a.article {
