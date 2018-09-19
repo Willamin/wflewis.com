@@ -15,4 +15,4 @@ So I set about building a lightweight game engine in Crystal, my goals simple:  
 
 While it's not quite finished, fully featured, or meticulously documented, I present [Molly2d](https://github.com/willamin/molly2d).
 
-![](https://raw.githubusercontent.com/Willamin/molly2d/d2151642911de2b70cbaf3c65316d01671c3c3c0/logo/v2.png)
+![](/images/blog/001/molly2d.png)
