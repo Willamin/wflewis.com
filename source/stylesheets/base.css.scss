@@ -246,10 +246,11 @@ a.article {
     background: $dark;
     transform: translateY(-100vh);
     transition: transform 0.2s;
-    display:block;
+    display:none;
   }
 
   #menu:checked + .button-row {
+    display:block;
     transform: translateY(0);
   }
 }
