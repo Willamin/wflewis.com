@@ -76,7 +76,7 @@ main.landing {
   }
 }
 
-a.button {
+.button {
   text-decoration: none;
   background-color: $accent;
   color: #eee;
@@ -205,6 +205,11 @@ a.article {
   }
 }
 
+
+.mobile {
+  display: none;
+}
+
 @media (max-width: 600px) {
   body {
     margin-left: 0;
@@ -222,11 +227,41 @@ a.article {
     height: calc(100% + 2em);
   }
 
-  .button-row {
-    display: none;
+  .mobile {
+    display: block;
+    cursor: pointer;
   }
+
+  .less-margin {
+    margin-top: 0.5em;
+    margin-bottom: -1.5em;
+  }
+
+  .button-row {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    left:0;
+    background: $dark;
+    transform: translateY(-100vh);
+    transition: transform 0.2s;
+    display:block;
+  }
+
+  #menu:checked + .button-row {
+    transform: translateY(0);
+  }
+}
+
+.magic {
+  display: none;
 }
 
 li {
   list-style: none;
+}
+
+.invisible {
+  visibility: hidden;
 }
