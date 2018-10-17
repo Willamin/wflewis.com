@@ -1,6 +1,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="UTF-8">
-<meta name="description" content="Will Lewis - Software Engineer">
+<% if content_for?(:description) %>
+  <meta name="description" content="<%= yield_content(:description) %>">
+<% else %>
+  <meta name="description" content="Will Lewis - Software Engineer">
+<% end %>
 <meta name="author" content="Will Lewis">
 <title>
   Will Lewis
