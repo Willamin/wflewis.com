@@ -21,3 +21,8 @@
   for = "/"
   [headers.values]
     Link = "</stylesheets/main.css>; rel=preload; as=style"
+
+[[redirects]]
+  from = "/503"
+  to = "/503.html"
+  status = 503
