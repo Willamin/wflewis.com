@@ -266,3 +266,16 @@ li {
 .invisible {
   visibility: hidden;
 }
+
+.signature {
+  float: right;
+  font-size: 0.8em;
+
+  border: 1px solid $green;
+  border-radius: 0.5em;
+  padding: 0 0.5em;
+  text-decoration: none;
+  &:hover {
+    background-color: lighten($green, 35%);
+  }
+}

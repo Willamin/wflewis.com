@@ -5,6 +5,12 @@
     <div class="outline"></div>
     <h1><%= current_article.title %></h1>
     <%= current_article.body %>
+    <% sig_path = File.basename(current_article.path, File.extname(current_article.path)) %>
+    <% if sitemap.find_resource_by_path("blog/#{sig_path}/signature.asc") %>
+      <a class="signature" href="signature.asc">
+        Signed by Will Lewis
+      </a>
+    <% end %>
   </article>
 </main>
 <% end %>
