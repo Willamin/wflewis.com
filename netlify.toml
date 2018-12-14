@@ -27,7 +27,3 @@
   to = "/503.html"
   status = 503
 
-[[headers]]
-  for = "/blog/molly2d/signature.asc"
-  [headers.values]
-    Content-Disposition = "inline"
