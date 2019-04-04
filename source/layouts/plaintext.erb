@@ -1,0 +1,6 @@
+<% wrap_layout :layout do %>
+<div class="container automargin scrollpastend">
+  A <a href="<%=current_page.data.plaintext%>">plain text version</a> is also available.
+  <pre><%= File.read("source/" + current_page.data.plaintext) %></pre>
+</div>
+<% end %>
