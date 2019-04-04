@@ -1,7 +1,7 @@
 .PHONY: build
 build:
-	bin/middleman build
+	bundle exec middleman build
 
 .PHONY: serve
 serve:
-	bin/middleman serve
+	bundle exec middleman serve
