@@ -1,6 +1,7 @@
 ---
 title: Molly2d
 date: 2018-09-19
+blurb: Game Engine written in Crystal
 ---
 
 Ever since I can remember, I've enjoyed making games. When I was younger this mostly meant changing the rules of basketball to something else. As I got older, I started to learn how to make computer games, starting with GameMaker. GameMaker provided a drag and drop way to describe game logic along with a simple programming language that could be used instead. While I focused on other aspects of programming, I still kept my love for making games.

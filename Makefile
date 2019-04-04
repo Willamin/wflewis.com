@@ -1,7 +1,7 @@
 .PHONY: build
 build:
-	middleman build
+	bin/middleman build
 
 .PHONY: serve
 serve:
-	middleman serve
+	bin/middleman serve

@@ -3,7 +3,9 @@
   <head>
      <%= partial "head" %>
   </head>
-  <body><div class="my-body">
-    <%= yield %></div>
+  <body>
+    <%= partial "nav" %>
+    <%= yield %>
+    <%= partial "foot" %>
   </body>
 </html>

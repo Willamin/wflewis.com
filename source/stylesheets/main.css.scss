@@ -1,12 +1,3 @@
-$light : hsl(0, 0, 93%);
-$light-shadow : hsl(0, 0, 85%);
-$dark : hsl(0, 0, 18%);
-$dark-shadow : hsl(0, 0, 13%);
-$accent : hsl(140, 50%, 50%);
-$green : hsl(140, 50%, 50%);
-
-$clear : hsla(0, 0, 0, 0);
-
-@import "font.css.scss";
+@import "flatwhite.css.scss";
+@import "size.css.scss";
 @import "base.css.scss";
-@import "form.css.scss";
