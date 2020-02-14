@@ -14,7 +14,7 @@ activate :blog do |blog|
   blog.generate_month_pages = false
   blog.generate_tag_pages = false
   blog.generate_year_pages = false
-  blog.layout = "post"
+  blog.layout = "standard"
   blog.sources = "{id}-{title}.html"
   blog.default_extension = "md"
 end
