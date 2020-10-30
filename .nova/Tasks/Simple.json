@@ -1,0 +1,9 @@
+{
+  "script" : "case \"$NOVA_TASK_NAME\" in\n\"build\")\n    cd simple && make\n    ;;\n\"clean\")\n    cd simple && rm -r build\n    ;;\nesac",
+  "actions" : [
+    "build",
+    "clean"
+  ],
+  "identifier" : "0149897F-36E8-4697-8EA2-E50EBC466741",
+  "openLogOnRun" : "fail"
+}
