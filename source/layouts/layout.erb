@@ -3,7 +3,8 @@
   <head>
      <%= partial "head" %>
   </head>
-  <body><div class="my-body">
-    <%= yield %></div>
+  <body>
+    <a class="up-link <%= if current_path == "index.html" then "invisible" else "" end %>" href="./..">up</a>
+    <%= yield %>
   </body>
 </html>

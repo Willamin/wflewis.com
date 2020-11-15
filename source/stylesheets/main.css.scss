@@ -1,12 +1,79 @@
-$light : hsl(0, 0, 93%);
-$light-shadow : hsl(0, 0, 85%);
-$dark : hsl(0, 0, 18%);
-$dark-shadow : hsl(0, 0, 13%);
-$accent : hsl(140, 50%, 50%);
-$green : hsl(140, 50%, 50%);
+@import "colors.css.scss";
 
-$clear : hsla(0, 0, 0, 0);
+@font-face {
+  font-family: OpenMoji;
+  src: url(OpenMoji-Black.ttf);
+}
 
-@import "font.css.scss";
-@import "base.css.scss";
-@import "form.css.scss";
+body {
+  line-height: 1.6em;
+  font-size: 16px;
+  font-family: Georgia, serif, OpenMoji;
+  font-weight: 400;
+  padding: 2em;
+  padding-top: 1.5em;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 5px;
+  margin: 2em auto 30vh;
+  max-width: 800px;
+  transition: margin 0.1s, border-color 0.1s;
+}
+@media (max-width: calc(800px + 4em)) {
+  body {
+    margin-top: 0;
+    border-color: transparent;
+  }
+}
+
+h1, h2, h3 {
+  line-height: 1.2;
+  margin: 0;
+  font-weight: 400;
+}
+
+code {
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 5px;
+  padding: 2px 8px;
+  overflow-x: scroll;
+}
+
+a {
+  text-decoration: none;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 3px;
+  padding: 1px 4px;
+  border-top: none;
+  border-bottom: none;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style-position: outside;
+}
+
+pre > code {
+  display: block;
+}
+
+p:first-of-type {
+  initial-letter: 2;
+}
+
+img {
+  max-width: 100%;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.up-link {
+  float: right;
+}

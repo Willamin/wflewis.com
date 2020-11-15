@@ -5,8 +5,6 @@ configure :build do
   activate :minify_javascript
 end
 
-page "/", :layout => "landing"
-
 activate :blog do |blog|
   blog.prefix = "blog"
   blog.permalink = "{title}"

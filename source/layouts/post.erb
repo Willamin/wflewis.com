@@ -1,16 +1,13 @@
 <% wrap_layout :layout do %>
 <% content_for :title do %>Blog<% end %>
-<main class="blog">
-  <article>
-    <div class="outline"></div>
-    <h1><%= current_article.title %></h1>
-    <%= current_article.body %>
-    <% sig_path = File.basename(current_article.path, File.extname(current_article.path)) %>
-    <% if sitemap.find_resource_by_path("blog/#{sig_path}/signature.txt") %>
-      <a class="signature" href="signature.txt">
-        Signed by Will Lewis
-      </a>
-    <% end %>
-  </article>
-</main>
+<article>
+  <h1><%= current_article.title %></h1>
+  <%= current_article.body %>
+  <% sig_path = File.basename(current_article.path, File.extname(current_article.path)) %>
+  <% if sitemap.find_resource_by_path("blog/#{sig_path}/signature.txt") %>
+    <a class="signature" href="signature.txt">
+      Signed by Will Lewis
+    </a>
+  <% end %>
+</article>
 <% end %>

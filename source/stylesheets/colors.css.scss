@@ -1,0 +1,45 @@
+/* ------------------------------ */
+/* -------- LIGHT THEME --------- */
+/* ------------------------------ */
+
+body {
+  background-color: #fefefe;
+  color: #444;
+  border-color: lightgray;
+}
+
+code {
+  border-color: lightgray;
+}
+
+a {
+  color: #444;
+}
+
+a:hover {
+  background-color: lightgray;
+}
+
+/* ------------------------------ */
+/* --------- DARK THEME --------- */
+/* ------------------------------ */
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #444;
+    color: #fefefe;
+    border-color: lightgray;
+  }
+
+  code {
+    border-color: lightgray;
+  }
+
+  a {
+    color: #fefefe;
+  }
+
+  a:hover {
+    background-color: #777;
+  }
+}
