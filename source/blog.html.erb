@@ -2,8 +2,10 @@
   <% content_for :title do %>Blog<% end %>
   <h1>Blog Posts</h1>
 
+  <a href="/feed.xml">RSS Feed</a>
+
   <ul>
-    <% blog.articles.each do |article| %>
+    <% blog('blog').articles.each do |article| %>
     <li>
       <a class="article" href="<%= article.url %>">
           <%= article.title %>

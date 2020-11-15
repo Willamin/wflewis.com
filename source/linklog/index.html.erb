@@ -1,0 +1,13 @@
+<article>
+<h1>Links</h1>
+
+<a href="./feed.xml">RSS Feed</a>
+
+<ul>
+  <% blog('linklog').articles.each do |article| %>
+    <li>
+      <%= article.date.strftime('%b %02e') %>: <%= link_to article.title, article %>
+    </li>
+  <% end %>
+</ul>
+</article>
