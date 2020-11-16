@@ -7,4 +7,4 @@ I've been meaning to begin publishing links that I find interesting. You can thi
 
 Without further ado: <ins><a href="/linklog/">/linklog/</a> and <a href="//wflewis.com/linklog/feed.xml"> the feed itself</a></ins> <del>[links.wfl.space](https://links.wfl.space) and [the feed itself](http://links.wfl.space/feed.xml)</del>.
 
- <small>(updated linklog links to my linklog on 2020-11-15)</small>
+ <small>(updated links to my linklog on 2020-11-15)</small>
