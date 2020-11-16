@@ -1,6 +1,6 @@
 .PHONY: build
 build:
-	middleman build
+	bundle exec middleman build
 
 .PHONY: serve
 serve:
