@@ -5,4 +5,6 @@ date: 2020-10-30
 
 I've been meaning to begin publishing links that I find interesting. You can think of this as a [link log](https://en.wikipedia.org/wiki/Linklog), retweeting, or a newsletter. These will be links that I've found on various link aggregator platforms, social media, or chatrooms that I frequent. I'll only post the links that I find particularly interesting, so you can expect that my link log will be relatively curated.
 
-Without further ado: [links.wfl.space](https://links.wfl.space) and [the feed itself](http://links.wfl.space/feed.xml).
+Without further ado: ~[links.wfl.space](https://links.wfl.space) and [the feed itself](http://links.wfl.space/feed.xml)~[/linklog/](/linklog/) and [the feed itself](//wflewis.com/linklog/feed.xml).
+
+(updated linklog links on 2020-11-15)
