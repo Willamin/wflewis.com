@@ -4,7 +4,7 @@ build:
 
 .PHONY: serve
 serve:
-	middleman serve
+	bundle exec middleman serve
 
 .PHONY: deploy
 deploy: build
