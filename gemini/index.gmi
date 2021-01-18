@@ -1,6 +1,6 @@
 # Hi, I'm Will.
 
-Thanks for stopping by! Some links on this site:
+Thanks for stopping by!
 
 => /public-key.txt GPG Key
 => /blog/ Blog
