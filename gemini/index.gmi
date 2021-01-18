@@ -1,0 +1,8 @@
+# Hi, I'm Will.
+
+Thanks for stopping by! Some links on this site:
+
+=> /public-key.txt GPG Key
+=> /blog/ Blog
+=> /linklog/ Link Log
+=> https://wflewis.com/ My Hypertext Site
