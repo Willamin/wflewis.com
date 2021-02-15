@@ -1,6 +1,4 @@
-# Welcome
-
-Hi, I'm Will.
+# Crem
 
 I'm writing a Gemini server in Crystal-lang and I'm hosting what I have in-progress here.
 

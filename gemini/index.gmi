@@ -1,8 +1,17 @@
 # Hi, I'm Will.
 
-Thanks for stopping by!
+Thanks for stopping by! Some of the links here don't work, I'm in the process of mirroring my website to Gemini. Generally if there's a link here that's missing, you'll be able to find the content you're looking for on the web version.
 
 => /public-key.txt GPG Key
 => /blog/ Blog
 => /linklog/ Link Log
-=> https://wflewis.com/ My Hypertext Site
+=> /poetry/index.gmi Poetry
+=> https://wflewis.com/ My World Wide Web Site
+
+=> /crem.gmi Crem, a Gemini Server written in Crystal
+
+## Orbit
+=> gemini://tilde.team/~khuxkm/leo/ LEO, A Gemini Webring
+=> gemini://tilde.team/~khuxkm/leo/next.cgi?gemini%3A//wflewis.com Next Page
+=> gemini://tilde.team/~khuxkm/leo/prev.cgi?gemini%3A//wflewis.com Last Page
+=> gemini://tilde.team/~khuxkm/leo/rand.cgi Random Page
