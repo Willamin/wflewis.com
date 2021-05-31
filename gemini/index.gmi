@@ -5,7 +5,7 @@ Thanks for stopping by! Some of the links here don't work, I'm in the process of
 => /public-key.txt GPG Key
 => /blog/ Blog
 => /linklog/ Link Log
-=> /poetry/index.gmi Poetry
+=> /poetry/ Poetry
 => https://wflewis.com/ My World Wide Web Site
 
 => /crem.gmi Crem, a Gemini Server written in Crystal
