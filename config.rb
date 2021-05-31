@@ -31,4 +31,17 @@ activate :blog do |blog|
   blog.default_extension = "md"
 end
 
+activate :blog do |blog|
+  blog.name = "birch-devlog"
+  blog.prefix = "birch-devlog"
+  blog.permalink = "{title}"
+  blog.generate_day_pages = false
+  blog.generate_month_pages = false
+  blog.generate_tag_pages = false
+  blog.generate_year_pages = false
+  blog.layout = "post"
+  blog.sources = "{year}-{month}-{day}-{title}.html"
+  blog.default_extension = "md"
+end
+
 activate :directory_indexes
