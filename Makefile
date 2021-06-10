@@ -1,5 +1,9 @@
+.PHONY: dependencies
+dependencies:
+	bundle install
+
 .PHONY: build
-build:
+build: dependencies
 	bundle exec middleman build
 
 .PHONY: serve
