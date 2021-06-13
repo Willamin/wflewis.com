@@ -2,22 +2,16 @@
 /* -------- LIGHT THEME --------- */
 /* ------------------------------ */
 
-body {
-  background-color: #fefefe;
-  color: #444;
-  border-color: lightgray;
-}
+@media (prefers-color-scheme: light) {
+  :root {
+    --system-green: rgb(52, 199, 89);
+    --system-red: rgb(255, 59, 48);
 
-code {
-  border-color: lightgray;
-}
-
-a {
-  color: #444;
-}
-
-a:hover {
-  background-color: lightgray;
+    --body-background: #fefefe;
+    --body-foreground: #444;
+    --body-foreground-hover: lightgray;
+    --border: lightgray;
+  }
 }
 
 /* ------------------------------ */
@@ -25,21 +19,13 @@ a:hover {
 /* ------------------------------ */
 
 @media (prefers-color-scheme: dark) {
-  body {
-    background-color: #444;
-    color: #fefefe;
-    border-color: lightgray;
-  }
+  :root {
+    --system-green: rgb(48, 209, 88);
+    --system-red: rgb(255, 69, 58);
 
-  code {
-    border-color: lightgray;
-  }
-
-  a {
-    color: #fefefe;
-  }
-
-  a:hover {
-    background-color: #777;
+    --body-background: #444;
+    --body-foreground: #fefefe;
+    --body-foreground-hover: #777;
+    --border: lightgray;
   }
 }

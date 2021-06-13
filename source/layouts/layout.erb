@@ -5,6 +5,12 @@
   </head>
   <body>
     <a class="up-link <%= if current_path == "index.html" then "invisible" else "" end %>" href="./..">up</a>
+
+    <% if %w[<ins> <del>].any? { |needle| current_article&.body&.include?(needle) } %>
+    <input type="checkbox" id="insdel" class="toggle" />
+    <label for="insdel" class="up-link">±</label>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

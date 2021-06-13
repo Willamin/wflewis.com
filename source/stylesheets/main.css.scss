@@ -18,6 +18,10 @@ body {
   margin: 2em auto 30vh;
   max-width: 800px;
   transition: margin 0.1s, border-color 0.1s;
+
+  background-color: var(--body-background);
+  color: var(--body-foreground);
+  border-color: var(--border);
 }
 @media (max-width: calc(800px + 4em)) {
   body {
@@ -38,6 +42,7 @@ code {
   border-radius: 5px;
   padding: 2px 8px;
   overflow-x: scroll;
+  border-color: var(--border);
 }
 
 a {
@@ -48,6 +53,11 @@ a {
   padding: 1px 4px;
   border-top: none;
   border-bottom: none;
+  color: var(--body-foreground);
+}
+
+a:hover {
+  background-color: var(--body-foreground-hover);
 }
 
 ul {
@@ -76,6 +86,9 @@ img {
 
 .up-link {
   float: right;
+  margin-left: 1em;
+  min-width: 1.5em;
+  text-align: center;
 }
 
 del {
@@ -84,4 +97,63 @@ del {
 
 ins {
   text-decoration: none;
+}
+
+hr {
+  border-style: solid;
+  border-width: 1px;
+  border-bottom: none;
+  border-color: var(--border);
+
+  // overflow: visible;
+  // width: calc(100% + 4em);
+  // position: relative;
+  // left: -2em;
+}
+
+h1 + hr:first-of-type {
+  margin-top: 1.5em;
+}
+
+input.toggle {
+  display: none;
+}
+
+input.toggle + label {
+  user-select: none;
+  -webkit-user-select: none;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 3px;
+  padding: 1px 4px;
+  border-top: none;
+  border-bottom: none;
+}
+
+input.toggle + label:hover {
+  cursor: pointer;
+}
+
+input.toggle#insdel:checked ~ * del, input.toggle#insdel:checked ~ * del * {
+  display: inline;
+  color: var(--system-red) !important;
+  text-decoration: none;
+}
+
+input.toggle#insdel:checked ~ * ins, input.toggle#insdel:checked ~ * ins * {
+  display: inline;
+  color: var(--system-green) !important;
+  text-decoration: none;
+}
+
+input.toggle + label {
+  color: var(--body-foreground);
+}
+
+input.toggle:checked + label {
+  background-color: var(--body-foreground-hover);
+}
+
+input.toggle + label:hover {
+  background-color: var(--body-foreground-hover);
 }
