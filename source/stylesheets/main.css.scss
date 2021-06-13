@@ -39,6 +39,11 @@ h1, h2, h3 {
 h1 { font-size: 4.236rem; }
 h2 { font-size: 2.618rem; }
 h3 { font-size: 1.618rem; }
+@media (max-width: calc(800px + 4em)) {
+  h1 { font-size: 2.00rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.50rem; }
+}
 
 code {
   border-width: 1px;
