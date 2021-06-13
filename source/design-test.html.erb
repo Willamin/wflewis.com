@@ -1,0 +1,27 @@
+<h1>Heading 1</h1>
+<p><%= lorem.sentences 2 %>.</p>
+
+<h2>Heading 2</h2>
+<p><%= lorem.sentences 2 %>.</p>
+
+<h3>Heading 3</h3>
+<p><%= lorem.sentences 2 %>.</p>
+
+<p>
+  And here's a paragraph with an <a href="#">inline link</a>.
+</p>
+
+<hr class="full-width" />
+
+<h2>Lists</h2>
+<ul>
+  <% 5.times do %>
+  <li><%= lorem.words 5 %></li>
+  <% end %>
+</ul>
+
+<ol>
+  <% 5.times do %>
+  <li><%= lorem.words 5 %></li>
+  <% end %>
+</ol>
