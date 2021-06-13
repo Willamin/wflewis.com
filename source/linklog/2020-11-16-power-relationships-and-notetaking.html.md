@@ -11,7 +11,7 @@ While quite long, this article carefully and wonderfully descibes why less power
 
 <hr>
 
-I think direction-independent relationships in code are fascinating. While I might not use Prolog for projects, I'll certainly be considering this style of programming in future work.
+I think direction-independent relationships in code are fascinating. While I might not use Prolog for projects, I’ll certainly be considering this style of programming in future work.
 
 [https://thatjdanisso.cool/functions-that-go-backwards](https://thatjdanisso.cool/functions-that-go-backwards)
 

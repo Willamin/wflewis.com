@@ -5,13 +5,13 @@ date: 2021-02-15
 
 <hr>
 
-It's a long read (as it was originally a 45 minute talk), but it's worth it! Steele gives an excellent suggestion for how programming languages ought to be designed, with the entire piece serving as a stellar analogy.
+It’s a long read (as it was originally a 45 minute talk), but it’s worth it! Steele gives an excellent suggestion for how programming languages ought to be designed, with the entire piece serving as a stellar analogy.
 
 [https://www.cs.virginia.edu/~evans/cs655/readings/steele.pdf](https://www.cs.virginia.edu/~evans/cs655/readings/steele.pdf)
 
 <hr>
 
-Here's a page that I feel perfectly exemplifies why the web is such a great medium. It so clearly explains challenges and solutions for dealing with hexagonal grids in games.
+Here’s a page that I feel perfectly exemplifies why the web is such a great medium. It so clearly explains challenges and solutions for dealing with hexagonal grids in games.
 
 [https://www.redblobgames.com/grids/hexagons/](https://www.redblobgames.com/grids/hexagons/)
 

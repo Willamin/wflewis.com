@@ -17,6 +17,6 @@ The title of this article speaks for itself: 68 Bits of Unsolicited Advice.
 
 <hr>
 
-I think this is a fantastic take on raising kids. I haven't done so myself yet, but I'll certainly be trying to emulate what this article describes.
+I think this is a fantastic take on raising kids. I haven’t done so myself yet, but I’ll certainly be trying to emulate what this article describes.
 
 [https://www.npr.org/sections/goatsandsoda/2019/03/13/685533353/a-playful-way-to-teach-kids-to-control-their-anger](https://www.npr.org/sections/goatsandsoda/2019/03/13/685533353/a-playful-way-to-teach-kids-to-control-their-anger)
