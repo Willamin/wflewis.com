@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
      <%= partial "head" %>
+     <%= stylesheet_link_tag("main.css") %>
   </head>
   <body>
     <a class="up-link <%= if current_path == "index.html" then "invisible" else "" end %>" href="./..">up</a>
