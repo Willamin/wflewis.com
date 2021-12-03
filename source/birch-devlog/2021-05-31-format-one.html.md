@@ -9,12 +9,14 @@ To start with, I want to leverage existing tools where possible, forming a sort 
 
 ## Version One organization
 More specifically, for Version One, I’ll organize the project as:
+
 - A Notebook represents an idea, document, page, etc. This is the level that is represented by a single file.
 - A Notebook consists of Cells.
 - A Cell has a type and a content body.
 - The Cell’s type determines how it’s content body is perceived, handled, or displayed.
 
 With the goal of comfortable editing in mind, the format for Version One will be as follows:
+
 - The first line of the document is always the first cell header.
 - A cell header begins with a sigil, then 1 or more whitespace characters, then the cell type.
 - Beginning on the next line is the cell body.
