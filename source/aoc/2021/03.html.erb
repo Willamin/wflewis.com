@@ -81,7 +81,49 @@ end
 
 <pre><code># crystal-lang
 def main(input)
-  # TBD
+  current_set = input.lines.map(&.chars)
+  bit = 0
+  while current_set.size > 1
+    current_set
+    column = current_set.transpose[bit]
+
+    zeroes = column.select(&.==('0')).size
+    ones = column.select(&.==('1')).size
+    common = zeroes > ones ? '0' : '1'
+
+    current_set = current_set.select do |list|
+      list[bit] == common
+    end
+
+    bit += 1
+  end
+
+  oxygen = current_set[0].join.to_i32(base: 2)
+
+  # ----
+
+  current_set = input.lines.map(&.chars)
+  bit = 0
+  while current_set.size > 1
+    current_set
+    column = current_set.transpose[bit]
+
+    zeroes = column.select(&.==('0')).size
+    ones = column.select(&.==('1')).size
+    common = zeroes <= ones ? '0' : '1'
+
+    current_set = current_set.select do |list|
+      list[bit] == common
+    end
+
+    bit += 1
+  end
+
+  co2 = current_set[0].join.to_i32(base: 2)
+
+  # ----
+
+  oxygen * co2
 end
 </code></pre>
 </article>
