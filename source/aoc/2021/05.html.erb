@@ -1,0 +1,230 @@
+<div class="aoc">
+<article class="day-desc"><h2>--- Day 5: Hydrothermal Venture ---</h2><p>You come across a field of <a href="https://en.wikipedia.org/wiki/Hydrothermal_vent" target="_blank">hydrothermal vents</a> on the ocean floor! These vents constantly produce large, opaque clouds, so it would be best to avoid them if possible.</p>
+<p>They tend to form in <em>lines</em>; the submarine helpfully produces a list of nearby <span title="Maybe they're Bresenham vents.">lines of vents</span> (your puzzle input) for you to review. For example:</p>
+<pre><code>0,9 -&gt; 5,9
+8,0 -&gt; 0,8
+9,4 -&gt; 3,4
+2,2 -&gt; 2,1
+7,0 -&gt; 7,4
+6,4 -&gt; 2,0
+0,9 -&gt; 2,9
+3,4 -&gt; 1,4
+0,0 -&gt; 8,8
+5,5 -&gt; 8,2
+</code></pre>
+<p>Each line of vents is given as a line segment in the format <code>x1,y1 -&gt; x2,y2</code> where <code>x1</code>,<code>y1</code> are the coordinates of one end the line segment and <code>x2</code>,<code>y2</code> are the coordinates of the other end. These line segments include the points at both ends. In other words:</p>
+<ul>
+<li>An entry like <code>1,1 -&gt; 1,3</code> covers points <code>1,1</code>, <code>1,2</code>, and <code>1,3</code>.</li>
+<li>An entry like <code>9,7 -&gt; 7,7</code> covers points <code>9,7</code>, <code>8,7</code>, and <code>7,7</code>.</li>
+</ul>
+<p>For now, <em>only consider horizontal and vertical lines</em>: lines where either <code>x1 = x2</code> or <code>y1 = y2</code>.</p>
+<p>So, the horizontal and vertical lines from the above list would produce the following diagram:</p>
+<pre><code>.......1..
+..1....1..
+..1....1..
+.......1..
+.112111211
+..........
+..........
+..........
+..........
+222111....
+</code></pre>
+<p>In this diagram, the top left corner is <code>0,0</code> and the bottom right corner is <code>9,9</code>. Each position is shown as <em>the number of lines which cover that point</em> or <code>.</code> if no line covers that point. The top-left pair of <code>1</code>s, for example, comes from <code>2,2 -&gt; 2,1</code>; the very bottom row is formed by the overlapping lines <code>0,9 -&gt; 5,9</code> and <code>0,9 -&gt; 2,9</code>.</p>
+<p>To avoid the most dangerous areas, you need to determine <em>the number of points where at least two lines overlap</em>. In the above example, this is anywhere in the diagram with a <code>2</code> or larger - a total of <code><em>5</em></code> points.</p>
+<p>Consider only horizontal and vertical lines. <em>At how many points do at least two lines overlap?</em></p>
+</article>
+<article class="accent">
+<h3 id="part1-solution">Part One Solution Source</h3>
+<pre><code># crystal-lang
+def main(input)
+  # parse input
+  vents = [] of {ax: Int32, ay: Int32, bx: Int32, by: Int32}
+  input.lines.each do |line|
+    a, b = line.split(" -> ")
+
+    ax, ay = a.split(",")
+    bx, by = b.split(",")
+
+    vent = {
+      ax: ax.to_i32,
+      ay: ay.to_i32,
+      bx: bx.to_i32,
+      by: by.to_i32,
+    }
+
+    vents << vent
+  end
+
+  # walk the vents, marking positions
+  #                     x      y       count
+  grid_map = Hash(Tuple(Int32, Int32), Int32).new
+
+  vents.each do |v|
+    if v[:ax] == v[:bx]
+      x = v[:ax]
+      v[:ay].step(to: v[:by]).each do |y|
+        new_value = (grid_map[{x, y}]? || 0) + 1
+        grid_map[{x, y}] = new_value
+      end
+      next
+    end
+
+    if v[:ay] == v[:by]
+      y = v[:ay]
+      v[:ax].step(to: v[:bx]).each do |x|
+        new_value = (grid_map[{x, y}]? || 0) + 1
+        grid_map[{x, y}] = new_value
+      end
+      next
+    end
+  end
+
+  # count dangerous vents
+  dangerous_vents = 0
+  grid_map.each do |k, v|
+    dangerous_vents += 1 if v > 1
+  end
+
+  puts dangerous_vents
+end
+</code></pre>
+</article>
+<article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Unfortunately, considering only horizontal and vertical lines doesn't give you the full picture; you need to also consider <em>diagonal lines</em>.</p>
+<p>Because of the limits of the hydrothermal vent mapping system, the lines in your list will only ever be horizontal, vertical, or a diagonal line at exactly 45 degrees. In other words:</p>
+<ul>
+<li>An entry like <code>1,1 -&gt; 3,3</code> covers points <code>1,1</code>, <code>2,2</code>, and <code>3,3</code>.</li>
+<li>An entry like <code>9,7 -&gt; 7,9</code> covers points <code>9,7</code>, <code>8,8</code>, and <code>7,9</code>.</li>
+</ul>
+<p>Considering all lines from the above example would now produce the following diagram:</p>
+<pre><code>1.1....11.
+.111...2..
+..2.1.111.
+...1.2.2..
+.112313211
+...1.2....
+..1...1...
+.1.....1..
+1.......1.
+222111....
+</code></pre>
+<p>You still need to determine <em>the number of points where at least two lines overlap</em>. In the above example, this is still anywhere in the diagram with a <code>2</code> or larger - now a total of <code><em>12</em></code> points.</p>
+<p>Consider all of the lines. <em>At how many points do at least two lines overlap?</em></p>
+</article>
+<article class="accent">
+<h3 id="part2-solution">Part Two Solution Source</h3>
+<pre><code># crystal-lang
+def main(input)
+  # parse input
+  vents = [] of {ax: Int32, ay: Int32, bx: Int32, by: Int32}
+  input.lines.each do |line|
+    a, b = line.split(" -> ")
+
+    ax, ay = a.split(",")
+    bx, by = b.split(",")
+
+    vent = {
+      ax: ax.to_i32,
+      ay: ay.to_i32,
+      bx: bx.to_i32,
+      by: by.to_i32,
+    }
+
+    vents << vent
+  end
+
+  # walk the vents, marking positions
+  #                     x      y       count
+  grid_map = Hash(Tuple(Int32, Int32), Int32).new
+
+  vents.each do |v|
+    if v[:ax] == v[:bx]
+      x = v[:ax]
+      v[:ay].step(to: v[:by]).each do |y|
+        new_value = (grid_map[{x, y}]? || 0) + 1
+        grid_map[{x, y}] = new_value
+      end
+      next
+    end
+
+    if v[:ay] == v[:by]
+      y = v[:ay]
+      v[:ax].step(to: v[:bx]).each do |x|
+        new_value = (grid_map[{x, y}]? || 0) + 1
+        grid_map[{x, y}] = new_value
+      end
+      next
+    end
+
+    x = v[:ax]
+    y = v[:ay]
+
+    if v[:ax] < v[:bx]
+      x_step = 1
+    else
+      x_step = -1
+    end
+
+    if v[:ay] < v[:by]
+      y_step = 1
+    else
+      y_step = -1
+    end
+
+    while x != (v[:bx] + x_step) && y != (v[:by] + y_step)
+      new_value = (grid_map[{x, y}]? || 0) + 1
+      grid_map[{x, y}] = new_value
+
+      x += x_step
+      y += y_step
+    end
+  end
+
+  # count dangerous vents
+  dangerous_vents = 0
+  grid_map.each do |k, v|
+    dangerous_vents += 1 if v > 1
+  end
+
+  puts dangerous_vents
+end
+</code></pre>
+</article>
+
+<hr class="thick" />
+
+<article class="accent">
+<h3 id="part2-solution-clean">Cleaned-up Part 2 Solution Source</h3>
+
+<pre><code># crystal-lang
+def main(input)
+  grid_map = Hash(Tuple(Int32, Int32), Int32).new
+  dangerous_vents = 0
+  input.lines.each do |line|
+    a, b = line.split(" -> ")
+
+    ax, ay = a.split(",").map(&.to_i32)
+    bx, by = b.split(",").map(&.to_i32)
+
+    x = ax
+    y = ay
+
+    x_step = (ax <=> bx).sign * -1
+    y_step = (ay <=> by).sign * -1
+
+    while (x != (bx + x_step) || x_step == 0) && (y != (by + y_step) || y_step == 0)
+      new_value = (grid_map[{x, y}]? || 0) + 1
+      grid_map[{x, y}] = new_value
+
+      if new_value == 2
+        dangerous_vents += 1
+      end
+
+      x += x_step
+      y += y_step
+    end
+  end
+  puts dangerous_vents
+end
+</code></pre>
+</article>
