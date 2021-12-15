@@ -52,6 +52,27 @@ def main(input)
   puts x * depth
 end
 </code></pre>
+<pre><code>; clojure
+(require '[clojure.string :as s])
+
+(->> input
+  s/split-lines
+  (map (fn [line] (s/split line #" ")))
+  (map (fn [[dir speed]] [dir (#(Integer/parseInt %) speed)]))
+  (reduce
+    (fn [[x depth] [dir speed]]
+      (cond
+        (= dir "forward") [(+ x speed) depth]
+        (= dir "up") [x (- depth speed)]
+        (= dir "down") [x (+ depth speed)]
+        :else [x depth]
+      )
+    )
+    [0 0]
+  )
+  (reduce * 1)
+)
+</code></pre>
 </article>
 <article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Based on your calculations, the planned course doesn't seem to make any sense. You find the submarine manual and discover that the process is actually slightly more complicated.</p>
 <p>In addition to horizontal position and depth, you'll also need to track a third value, <em>aim</em>, which also starts at <code>0</code>. The commands also mean something entirely different than you first thought:</p>
@@ -89,7 +110,7 @@ def main(input)
     direction, amount = line.split(" ")
     amount = amount.to_i32
     case direction
-    when "forward" 
+    when "forward"
       x += amount
       depth += aim * amount
     when "up" then aim -= amount
@@ -99,6 +120,28 @@ def main(input)
 
   puts x * depth
 end
+</code></pre>
+<pre><code>; clojure
+(require '[clojure.string :as s])
+
+(->> input
+  s/split-lines
+  (map (fn [line] (s/split line #" ")))
+  (map (fn [[dir speed]] [dir (#(Integer/parseInt %) speed)]))
+  (reduce
+    (fn [[x depth aim] [dir speed]]
+      (cond
+        (= dir "forward") [(+ x speed) (+ depth (* aim speed)) aim]
+        (= dir "up") [x depth (- aim speed)]
+        (= dir "down") [x depth (+ aim speed)]
+        :else [x depth aim]
+      )
+    )
+    [0 0 0] ; position, depth, aim
+  )
+  (take 2)
+  (reduce * 1)
+)
 </code></pre>
 </article>
 </div>
