@@ -53,6 +53,16 @@ def main(input)
   puts increases
 end
 </code></pre>
+
+<pre><code>; clojure
+(->> input
+  (clojure.string/split-lines)
+  (map #(Integer/parseInt %))
+  (partition 2 1)
+  (filter (fn [[x y]] (< x y)))
+  count
+)
+</code></pre>
 </article>
 
 <article><h2 id="part2">--- Part Two ---</h2><p>Considering every single measurement isn't as useful as you expected: there's just too much noise in the data.</p>
@@ -105,6 +115,16 @@ def main(input)
   end
   puts increases
 end
+</code></pre>
+
+<pre><code>; clojure
+(->> input
+  (clojure.string/split-lines)
+  (map #(Integer/parseInt %))
+  (partition 4 1)
+  (filter (fn [[w x y z]] (< (+ w x y) (+ x y z)) ))
+  count
+)
 </code></pre>
 </article>
 </div>
