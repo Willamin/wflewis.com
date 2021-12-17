@@ -7,6 +7,11 @@
   <body>
     <a class="up-link <%= if current_path == "index.html" then "invisible" else "" end %>" href="./..">up</a>
 
+    <% if current_page.data.next_page || current_page.data.previous_page %>
+      <a class="up-link <%= current_page.data.next_page == nil ? "disable" : "" %>" href="<%= current_page.data.next_page %>">→</a>
+      <a class="up-link <%= current_page.data.previous_page == nil ? "disable" : "" %>" href="<%= current_page.data.previous_page %>">←</a>
+    <% end %>
+
     <% if %w[<ins> <del>].any? { |needle| current_article&.body&.include?(needle) } %>
     <input type="checkbox" id="insdel" class="toggle" />
     <label for="insdel" class="up-link">±</label>
