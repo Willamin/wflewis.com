@@ -6,7 +6,7 @@
 <ul>
   <% blog('linklog').articles.each do |article| %>
     <li>
-      <%= article.date.strftime('%b %02e') %>: <%= link_to article.title, article %>
+      <%= article.date.strftime('%b %02e, %Y') %>: <%= link_to article.title, article %>
     </li>
   <% end %>
 </ul>
