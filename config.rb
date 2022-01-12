@@ -1,4 +1,4 @@
-ignore /stylesheets\/(?!main).*\.css.scss/
+ignore /stylesheets\/((?!main)(?!typography)).*\.css.scss/
 
 configure :build do
   activate :minify_css
