@@ -2,6 +2,9 @@
 <html lang="en">
   <head>
      <%= partial "head" %>
+     <% if current_page.data.typography_styles %>
+      <%= stylesheet_link_tag("typography.css") %>
+    <% end %>
   </head>
   <body>
     <%= yield %>
