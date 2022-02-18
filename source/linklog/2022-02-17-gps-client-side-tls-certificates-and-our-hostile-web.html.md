@@ -1,5 +1,5 @@
 ---
-title: GPS, Client-side TLS Certificates, and A Brilliant Description of Our Current Dystopia
+title: GPS, Client-side TLS Certificates, and Our Hostile Web
 date: 2022-02-17
 ---
 <hr>
