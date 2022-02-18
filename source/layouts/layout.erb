@@ -23,6 +23,11 @@
       <label for="show-meta" class="no-select up-link">ⓘ</label>
     <% end %>
 
+    <% if current_page.data.show_help_toggle %>
+      <input type="checkbox" id="show-help" class="toggle" />
+      <label for="show-help" class="no-select up-link">?</label>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

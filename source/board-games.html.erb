@@ -1,32 +1,108 @@
+---
+show_help_toggle: true
+---
+<% max_of_max = data.board_games.games.max_by { |g| g["max-players"] || 1 }["max-players"] %>
+<% min_of_min = data.board_games.games.min_by { |g| g["min-players"] || 1 }["min-players"] || 1 %>
+
+<% by_max_players = data.board_games.games.group_by { |g| g["max-players"] } %>
+<% by_min_players = data.board_games.games.group_by { |g| g["min-players"] } %>
+<% by_name = data.board_games.games.sort_by { |g| g.sort_name&.downcase || g.name.downcase } %>
+
 <style>
 #max-players-ascending:not(:checked) ~ #max-players-ascending-list { display: none; }
 #max-players-descending:not(:checked) ~ #max-players-descending-list { display: none; }
+#min-players-ascending:not(:checked) ~ #min-players-ascending-list { display: none; }
+#min-players-descending:not(:checked) ~ #min-players-descending-list { display: none; }
+#name-ascending:not(:checked) ~ #name-ascending-list { display: none; }
+#name-descending:not(:checked) ~ #name-descending-list { display: none; }
+
+<% range = (min_of_min..max_of_max) %>
+<% range.each do |r| %>
+.can-play-with-<%= r %>-players { display: none; }
+
+#any-players:checked ~ div h2.can-play-with-<%= r %>-players { display: block !important; }
+#exactly-<%= r %>-players:checked ~ div h2.can-play-with-<%= r %>-players { display: block !important; }
+
+#any-players:checked ~ div ul.can-play-with-<%= r %>-players { display: block !important; }
+#exactly-<%= r %>-players:checked ~ div ul.can-play-with-<%= r %>-players { display: block !important; }
+
+#any-players:checked ~ div ul li.can-play-with-<%= r %>-players { display: list-item !important; }
+#exactly-<%= r %>-players:checked ~ div ul li.can-play-with-<%= r %>-players { display: list-item !important; }
+<% end %>
+
+#show-help:not(:checked) ~ #help { display: none; }
 </style>
 
 <h1>Board Games</h1>
 
-A quick list of some board games I have that I can bring to game nights, sorted by maximum number of players according to the box.
+<table border="1" style="display: none;">
+  <tr><td>
+    <h2>&nbsp; ⚠ This page is designed to be viewed with the help of CSS styles. ⚠ &nbsp;</h2>
+    <p>
+      &nbsp;&nbsp;I would like to add a similar page as this, but focusing on the style-less browsing experience. In the mean time, I'm prioritizing this variation given the prevalence of CSS. Sorry for the invonenience!&nbsp;&nbsp;
+    </p>
+  </td></tr>
+</table>
 
-<hr/>
+<div id="help">
+  <p>
+    <em>No Javascript was used in the making of this page!</em>
+  </p>
+  <p>
+    Ruby generates both HTML and CSS based on a data file. The buttons to toggle between sorting/grouping and filtering are actually radio buttons that use sibling selectors to toggle visibility of other parts of the page.
+  </p>
+  <hr class="full-width" />
+</div>
 
+<span class="up-link">Sort/Group:</span>
 <input type="radio" name="sort" id="max-players-ascending" class="toggle" />
 <label for="max-players-ascending" class="no-select up-link">Max ↑</label>
 
 <input type="radio" name="sort" id="max-players-descending" class="toggle" checked="checked" />
 <label for="max-players-descending" class="no-select up-link">Max ↓</label>
 
-<% max_of_max = data.board_games.games.max_by { |g| g["max-players"] }["max-players"] %>
-<% min_of_min = data.board_games.games.min_by { |g| g["min-players"] }["min-players"] || 1 %>
+<input type="radio" name="sort" id="min-players-ascending" class="toggle" />
+<label for="min-players-ascending" class="no-select up-link">Min ↑</label>
 
-<% by_max_players = data.board_games.games.group_by { |g| g["max-players"] } %>
+<input type="radio" name="sort" id="min-players-descending" class="toggle" />
+<label for="min-players-descending" class="no-select up-link">Min ↓</label>
+
+<input type="radio" name="sort" id="name-ascending" class="toggle" />
+<label for="name-ascending" class="no-select up-link">Name (a-z)</label>
+
+<input type="radio" name="sort" id="name-descending" class="toggle" />
+<label for="name-descending" class="no-select up-link">Name (z-a)</label>
+
+<hr />
+
+<span class="up-link">Filter by Players:</span>
+<input type="radio" name="filter-players" id="any-players" class="toggle" checked="checked" />
+<label for="any-players" class="no-select up-link">Any</label>
+<% (min_of_min..max_of_max).each do |r| %>
+<input type="radio" name="filter-players" id="exactly-<%= r %>-players" class="toggle" />
+<label for="exactly-<%= r %>-players" class="no-select up-link"><%= r %></label>
+<% end %>
+
+<hr class="full-width" />
 
 <div id="max-players-ascending-list">
 <% (min_of_min..max_of_max).each do |r| %>
   <% next if by_max_players[r].nil? %>
-  <h2><%= r %> Players</h2>
-  <ul>
+  <%
+    group_class =
+      by_max_players[r]
+      .map { |g|
+        (g["min-players"]..g["max-players"])
+          .map { |p| "can-play-with-#{p}-players"}
+          .join(" ")
+      }
+      .uniq
+      .join(" ")
+  %>
+  <h2 class="<%=group_class%>"><%= r %> Players Max</h2>
+  <ul class="<%=group_class%>">
     <% by_max_players[r].each do |g| %>
-      <li><%= g.name %></li>
+      <li class="<%= (g["min-players"]..g["max-players"]).map { |p| "can-play-with-#{p}-players"}.join(" ") %>"><%= g.name %></li>
     <% end %>
   </ul>
 <% end %>
@@ -35,11 +111,84 @@ A quick list of some board games I have that I can bring to game nights, sorted 
 <div id="max-players-descending-list">
 <% (min_of_min..max_of_max).reverse_each do |r| %>
   <% next if by_max_players[r].nil? %>
-  <h2><%= r %> Players</h2>
-  <ul>
+  <%
+    group_class =
+      by_max_players[r]
+      .map { |g|
+        (g["min-players"]..g["max-players"])
+          .map { |p| "can-play-with-#{p}-players"}
+          .join(" ")
+      }
+      .uniq
+      .join(" ")
+  %>
+  <h2 class="<%=group_class%>"><%= r %> Players Max</h2>
+  <ul class="<%=group_class%>">
     <% by_max_players[r].each do |g| %>
-      <li><%= g.name %></li>
+      <li class="<%= (g["min-players"]..g["max-players"]).map { |p| "can-play-with-#{p}-players"}.join(" ") %>"><%= g.name %></li>
     <% end %>
   </ul>
 <% end %>
+</div>
+
+<div id="min-players-ascending-list">
+<% (min_of_min..max_of_max).each do |r| %>
+  <% next if by_min_players[r].nil? %>
+  <%
+    group_class =
+      by_min_players[r]
+      .map { |g|
+        (g["min-players"]..g["max-players"])
+          .map { |p| "can-play-with-#{p}-players"}
+          .join(" ")
+      }
+      .uniq
+      .join(" ")
+  %>
+  <h2 class="<%=group_class%>"><%= r %> Players Minimum</h2>
+  <ul class="<%=group_class%>">
+    <% by_min_players[r].each do |g| %>
+      <li class="<%= (g["min-players"]..g["max-players"]).map { |p| "can-play-with-#{p}-players"}.join(" ") %>"><%= g.name %></li>
+    <% end %>
+  </ul>
+<% end %>
+</div>
+
+<div id="min-players-descending-list">
+<% (min_of_min..max_of_max).reverse_each do |r| %>
+  <% next if by_min_players[r].nil? %>
+  <%
+    group_class =
+      by_min_players[r]
+      .map { |g|
+        (g["min-players"]..g["max-players"])
+          .map { |p| "can-play-with-#{p}-players"}
+          .join(" ")
+      }
+      .uniq
+      .join(" ")
+  %>
+  <h2 class="<%=group_class%>"><%= r %> Players Minimum</h2>
+  <ul class="<%=group_class%>">
+    <% by_min_players[r].each do |g| %>
+      <li class="<%= (g["min-players"]..g["max-players"]).map { |p| "can-play-with-#{p}-players"}.join(" ") %>"><%= g.name %></li>
+    <% end %>
+  </ul>
+<% end %>
+</div>
+
+<div id="name-ascending-list">
+  <ul>
+    <% by_name.each do |g| %>
+      <li class="<%= (g["min-players"]..g["max-players"]).map { |p| "can-play-with-#{p}-players"}.join(" ") %>"><%= g.name %> (<%= g["min-players"] %>-<%= g["max-players"] %>)</li>
+    <% end %>
+  </ul>
+</div>
+
+<div id="name-descending-list">
+  <ul>
+    <% by_name.reverse_each do |g| %>
+      <li class="<%= (g["min-players"]..g["max-players"]).map { |p| "can-play-with-#{p}-players"}.join(" ") %>"><%= g.name %></li>
+    <% end %>
+  </ul>
 </div>

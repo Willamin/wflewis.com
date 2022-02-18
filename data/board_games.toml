@@ -1,123 +1,156 @@
 [[games]]
 name = "Resistance: Avalon"
 max-players = 10
+min-players = 5
 
 [[games]]
 name = "Coup, with the Reformation expansion"
 max-players = 10
+min-players = 2
 
 [[games]]
 name = "Uno"
 max-players = 10
+min-players = 2
 
 [[games]]
 name = "Spot It"
 max-players = 8
+min-players = 2
 
 [[games]]
 name = "Codenames"
 max-players = 8
+min-players = 2
 
 [[games]]
 name = "Codenames Deep Undercover"
 max-players = 8
+min-players = 4
 
 [[games]]
 name = "Codenames Deep Undercover 2.0"
 max-players = 8
+min-players = 4
 
 [[games]]
 name = "Sushi Go Party"
-max-players = 6
+max-players = 8
+min-players = 2
 
 [[games]]
 name = "King of Tokyo"
 max-players = 6
+min-players = 2
 
 [[games]]
 name = "Coup"
 max-players = 6
+min-players = 2
 
 [[games]]
-name = "Anomia"
+name = "Anomia: Party Edition"
 max-players = 6
+min-players = 3
 
 [[games]]
 name = "Munchkin (Adventure Time theme)"
 max-players = 6
+min-players = 3
 
 [[games]]
 name = "Parks"
 max-players = 5
+min-players = 1
 
 [[games]]
 name = "Exploding Kittens"
 max-players = 5
+min-players = 2
 
 [[games]]
 name = "The Game"
 max-players = 5
+min-players = 2
 
 [[games]]
 name = "Hanabi"
 max-players = 5
+min-players = 2
 
 [[games]]
 name = "Lost Cities: The Board Game"
 max-players = 4
+min-players = 2
 
 [[games]]
 name = "Love Letter"
 max-players = 4
+min-players = 2
 
 [[games]]
 name = "Love Letter (Adventure Time theme)"
 max-players = 4
+min-players = 2
 
 [[games]]
 name = "Runes of Zun"
 max-players = 4
+min-players = 2
 
 [[games]]
 name = "Happy Little Dinosaurs"
 max-players = 4
+min-players = 2
 
 [[games]]
 name = "Illimat"
 max-players = 4
+min-players = 1
 
 [[games]]
 name = "Tapeworm"
 max-players = 4
+min-players = 2
 
 [[games]]
 name = "Splendor (and expansions)"
 max-players = 4
+min-players = 2
 
 [[games]]
 name = "The Mind"
 max-players = 4
+min-players = 2
 
 [[games]]
 name = "Dominion"
 max-players = 4
+min-players = 2
 
 [[games]]
 name = "The Fox and The Forest"
+sort_name = "Fox and The Forest, The"
 max-players = 2
+min-players = 2
 
 [[games]]
 name = "Fugitive"
 max-players = 2
+min-players = 2
 
 [[games]]
 name = "Lost Cities"
 max-players = 2
+min-players = 2
 
 [[games]]
 name = "A Little Wordy"
+sort_name = "Little Wordy, A"
 max-players = 2
+min-players = 2
 
 [[games]]
 name = "Codenames Duet"
 max-players = 2
+min-players = 2
