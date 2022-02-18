@@ -6,21 +6,21 @@
      <%= stylesheet_link_tag("typography.css") %>
   </head>
   <body>
-    <a class="up-link <%= if current_path == "index.html" then "invisible" else "" end %>" href="./..">up</a>
+    <a class="no-select up-link <%= if current_path == "index.html" then "invisible" else "" end %>" href="./..">up</a>
 
     <% if current_page.data.next_page || current_page.data.previous_page %>
-      <a class="up-link <%= current_page.data.next_page == nil ? "disable" : "" %>" href="<%= current_page.data.next_page %>">→</a>
-      <a class="up-link <%= current_page.data.previous_page == nil ? "disable" : "" %>" href="<%= current_page.data.previous_page %>">←</a>
+      <a class="no-select up-link <%= current_page.data.previous_page == nil ? "disable" : "" %>" href="<%= current_page.data.previous_page %>">←</a>
+      <a class="no-select up-link <%= current_page.data.next_page == nil ? "disable" : "" %>" href="<%= current_page.data.next_page %>">→</a>
     <% end %>
 
     <% if %w[<ins> <del>].any? { |needle| current_article&.body&.include?(needle) } %>
-    <input type="checkbox" id="insdel" class="toggle" />
+    <input type="checkbox" id="insdel" class="no-select toggle" />
     <label for="insdel" class="up-link">±</label>
     <% end %>
 
     <% if current_page.data.show_meta_toggle %>
       <input type="checkbox" id="show-meta" class="toggle" />
-      <label for="show-meta" class="up-link">ⓘ</label>
+      <label for="show-meta" class="no-select up-link">ⓘ</label>
     <% end %>
 
     <%= yield %>

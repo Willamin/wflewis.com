@@ -3,9 +3,6 @@
 body {
   padding: 2em;
   padding-top: 1.5em;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 5px;
   margin: 2em auto 30vh;
   max-width: 800px;
   transition: margin 0.1s, border-color 0.1s;
@@ -17,7 +14,6 @@ body {
 @media (max-width: calc(800px + 4em)) {
   body {
     margin-top: 0;
-    border-color: transparent;
   }
 }
 
@@ -49,6 +45,7 @@ a.disable {
   cursor: not-allowed;
   opacity: 0.5;
   text-decoration: none;
+  pointer-events: none;
 }
 
 ul, ol {
@@ -63,10 +60,6 @@ pre > code {
   display: block;
 }
 
-p:first-of-type {
-  initial-letter: 2;
-}
-
 img {
   max-width: 100%;
 }
@@ -76,10 +69,10 @@ img {
 }
 
 .up-link {
-  float: right;
-  margin-left: 1em;
+  display: inline-block;
   min-width: 1.5em;
   text-align: center;
+  margin-right: 1em;
 }
 
 del {
@@ -151,7 +144,6 @@ input.toggle + label:hover {
   background-color: var(--body-foreground-hover);
 }
 
-
 .aoc {
   article em {
     font-style: normal;
@@ -198,4 +190,8 @@ hr.thick {
   border-color: var(--border);
   margin-top: 1em;
   margin-bottom: 1em;
+}
+
+.no-select {
+  user-select: none;
 }

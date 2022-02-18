@@ -1,0 +1,45 @@
+<style>
+#max-players-ascending:not(:checked) ~ #max-players-ascending-list { display: none; }
+#max-players-descending:not(:checked) ~ #max-players-descending-list { display: none; }
+</style>
+
+<h1>Board Games</h1>
+
+A quick list of some board games I have that I can bring to game nights, sorted by maximum number of players according to the box.
+
+<hr/>
+
+<input type="radio" name="sort" id="max-players-ascending" class="toggle" />
+<label for="max-players-ascending" class="no-select up-link">Max ↑</label>
+
+<input type="radio" name="sort" id="max-players-descending" class="toggle" checked="checked" />
+<label for="max-players-descending" class="no-select up-link">Max ↓</label>
+
+<% max_of_max = data.board_games.games.max_by { |g| g["max-players"] }["max-players"] %>
+<% min_of_min = data.board_games.games.min_by { |g| g["min-players"] }["min-players"] || 1 %>
+
+<% by_max_players = data.board_games.games.group_by { |g| g["max-players"] } %>
+
+<div id="max-players-ascending-list">
+<% (min_of_min..max_of_max).each do |r| %>
+  <% next if by_max_players[r].nil? %>
+  <h2><%= r %> Players</h2>
+  <ul>
+    <% by_max_players[r].each do |g| %>
+      <li><%= g.name %></li>
+    <% end %>
+  </ul>
+<% end %>
+</div>
+
+<div id="max-players-descending-list">
+<% (min_of_min..max_of_max).reverse_each do |r| %>
+  <% next if by_max_players[r].nil? %>
+  <h2><%= r %> Players</h2>
+  <ul>
+    <% by_max_players[r].each do |g| %>
+      <li><%= g.name %></li>
+    <% end %>
+  </ul>
+<% end %>
+</div>
