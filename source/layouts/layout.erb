@@ -6,7 +6,9 @@
      <%= stylesheet_link_tag("typography.css") %>
   </head>
   <body>
-    <a class="no-select up-link <%= if current_path == "index.html" then "invisible" else "" end %>" href="./..">up</a>
+    <% unless current_page.data.no_up_link %>
+      <a class="no-select up-link <%= if current_path == "index.html" then "invisible" else "" end %>" href="./..">up</a>
+    <% end %>
 
     <% if current_page.data.next_page || current_page.data.previous_page %>
       <a class="no-select up-link <%= current_page.data.previous_page == nil ? "disable" : "" %>" href="<%= current_page.data.previous_page %>">←</a>
