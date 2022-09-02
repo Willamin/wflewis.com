@@ -176,10 +176,10 @@ input.toggle + label:hover {
     border-radius: 6px;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    background-color: #0267C1;
+    background-color: var(--accent-color);
     height: 100%;
     float: left;
-    background-color:  #0267C1;
+    background-color:  var(--accent-color);
   }
 }
 
